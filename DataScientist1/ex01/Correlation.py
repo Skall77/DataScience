@@ -16,14 +16,10 @@ def correlation(file_path: str):
     try:
         df = pd.read_csv(file_path)
 
-        # Use label encoding for the 'knight' column
         label_encoder = LabelEncoder()
         df['knight'] = label_encoder.fit_transform(df['knight'])
-
-        # Calculate the correlation coefficients between 'knight' and other columns
-        correlation_with_target = df.corr()['knight'].abs().sort_values(ascending=False)
-
-        # Display the sorted correlation coefficients
+        correlation_with_target = df.corr()[
+            'knight'].abs().sort_values(ascending=False)
         print(correlation_with_target)
     except Exception as e:
         print(f"{type(e).__name__}: {e}")
