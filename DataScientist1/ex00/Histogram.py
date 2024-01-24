@@ -51,13 +51,10 @@ def second_histogram():
         file_path = 'Train_knight.csv'
         df = pd.read_csv(file_path)
 
-        # Get the column names
         columns = df.columns[:-1]
 
-        # Create a histogram for each column
         fig, axes = plt.subplots(6, 5, figsize=(15, 15), tight_layout=True)
 
-        # Flatten the 2D array of axes into a 1D array
         axes = axes.flatten()
 
         for i, column in enumerate(columns):
